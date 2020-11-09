@@ -11,6 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -19,8 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0e\x64iscount.proto\x12\x08\x64iscount\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\"w\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12$\n\x08\x64iscount\x18\x05 \x01(\x0b\x32\x12.discount.Discount\"6\n\x0f\x44iscountRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\"f\n\x10\x44iscountResponse\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x1b\n\x13\x66ull_price_in_cents\x18\x02 \x01(\x05\x12!\n\x19\x64iscounted_price_in_cents\x18\x03 \x01(\x05\x32[\n\nDiscounter\x12M\n\x12\x63\x61lculate_discount\x12\x19.discount.DiscountRequest\x1a\x1a.discount.DiscountResponse\"\x00\x62\x06proto3'
-)
+  serialized_pb=b'\n\x0e\x64iscount.proto\x12\x08\x64iscount\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\"w\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12$\n\x08\x64iscount\x18\x05 \x01(\x0b\x32\x12.discount.Discount\"l\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x31\n\rdate_of_birth\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"6\n\x0f\x44iscountRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\"f\n\x10\x44iscountResponse\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x1b\n\x13\x66ull_price_in_cents\x18\x02 \x01(\x05\x12!\n\x19\x64iscounted_price_in_cents\x18\x03 \x01(\x05\x32[\n\nDiscounter\x12M\n\x12\x63\x61lculate_discount\x12\x19.discount.DiscountRequest\x1a\x1a.discount.DiscountResponse\"\x00\x62\x06proto3'
+  ,
+  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
 
 
@@ -59,8 +61,8 @@ _DISCOUNT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=28,
-  serialized_end=75,
+  serialized_start=61,
+  serialized_end=108,
 )
 
 
@@ -119,8 +121,61 @@ _PRODUCT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=77,
-  serialized_end=196,
+  serialized_start=110,
+  serialized_end=229,
+)
+
+
+_USER = _descriptor.Descriptor(
+  name='User',
+  full_name='discount.User',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='discount.User.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='first_name', full_name='discount.User.first_name', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='last_name', full_name='discount.User.last_name', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='date_of_birth', full_name='discount.User.date_of_birth', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=231,
+  serialized_end=339,
 )
 
 
@@ -158,8 +213,8 @@ _DISCOUNTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=198,
-  serialized_end=252,
+  serialized_start=341,
+  serialized_end=395,
 )
 
 
@@ -204,13 +259,15 @@ _DISCOUNTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=254,
-  serialized_end=356,
+  serialized_start=397,
+  serialized_end=499,
 )
 
 _PRODUCT.fields_by_name['discount'].message_type = _DISCOUNT
+_USER.fields_by_name['date_of_birth'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 DESCRIPTOR.message_types_by_name['Discount'] = _DISCOUNT
 DESCRIPTOR.message_types_by_name['Product'] = _PRODUCT
+DESCRIPTOR.message_types_by_name['User'] = _USER
 DESCRIPTOR.message_types_by_name['DiscountRequest'] = _DISCOUNTREQUEST
 DESCRIPTOR.message_types_by_name['DiscountResponse'] = _DISCOUNTRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -228,6 +285,13 @@ Product = _reflection.GeneratedProtocolMessageType('Product', (_message.Message,
   # @@protoc_insertion_point(class_scope:discount.Product)
   })
 _sym_db.RegisterMessage(Product)
+
+User = _reflection.GeneratedProtocolMessageType('User', (_message.Message,), {
+  'DESCRIPTOR' : _USER,
+  '__module__' : 'discount_pb2'
+  # @@protoc_insertion_point(class_scope:discount.User)
+  })
+_sym_db.RegisterMessage(User)
 
 DiscountRequest = _reflection.GeneratedProtocolMessageType('DiscountRequest', (_message.Message,), {
   'DESCRIPTOR' : _DISCOUNTREQUEST,
@@ -252,8 +316,8 @@ _DISCOUNTER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=358,
-  serialized_end=449,
+  serialized_start=501,
+  serialized_end=592,
   methods=[
   _descriptor.MethodDescriptor(
     name='calculate_discount',
