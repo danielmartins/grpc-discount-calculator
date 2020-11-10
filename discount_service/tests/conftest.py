@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import pytest
 from google.protobuf.timestamp_pb2 import Timestamp
 
-from discount_service.discount_service.discount_pb2 import User, Product
+from .. import messages_pb2
 
 
 @pytest.fixture
@@ -15,7 +15,7 @@ def user():
         "first_name": "daniel", "last_name": "santos",
         "date_of_birth": birthday
     }
-    return User(**usr_params)
+    return messages_pb2.User(**usr_params)
 
 
 @pytest.fixture
@@ -27,7 +27,7 @@ def user_with_birthday_at_black_fridays():
         "first_name": "daniel", "last_name": "santos",
         "date_of_birth": birthday
     }
-    return User(**usr_params)
+    return messages_pb2.User(**usr_params)
 
 
 @pytest.fixture
@@ -56,4 +56,4 @@ def product_with_price_100():
         "title": "product a",
         "description": "description"
     }
-    return Product(**prd_params)
+    return messages_pb2.Product(**prd_params)

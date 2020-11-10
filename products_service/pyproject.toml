@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "discount_service"
+name = "products_service"
 version = "0.1.0"
 description = ""
 authors = ["Daniel Santos <dan.elias@gmail.com>"]
@@ -7,17 +7,14 @@ authors = ["Daniel Santos <dan.elias@gmail.com>"]
 [tool.poetry.dependencies]
 python = ">=3.8,<3.9"
 grpcio = "^1.33.1"
-fastapi = "^0.61.1"
-peewee = "^3.13.3"
-stories = "^3.0.0"
 SQLAlchemy = "^1.3.20"
-uvicorn = "^0.12.2"
+pydantic = "^1.7.2"
+loguru = "^0.5.3"
+invoke = "^1.4.1"
+Faker = "^4.14.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-grpcio-tools = "^1.33.1"
-invoke = "^1.4.1"
-pytest-freezegun = "^0.4.2"
 
 [build-system]
 requires = ["poetry>=0.12"]

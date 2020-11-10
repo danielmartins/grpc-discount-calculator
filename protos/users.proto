@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "messages.proto";
+
+package users;
+
+// The User service definition.
+service Users {
+  // Get User By ID
+  rpc get_user (GetUserRequest) returns (GetUserResponse) {}
+}

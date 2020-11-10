@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import discount_pb2 as discount__pb2
+import messages_pb2 as messages__pb2
 
 
 class DiscounterStub(object):
@@ -17,8 +17,8 @@ class DiscounterStub(object):
         """
         self.calculate_discount = channel.unary_unary(
                 '/discount.Discounter/calculate_discount',
-                request_serializer=discount__pb2.DiscountRequest.SerializeToString,
-                response_deserializer=discount__pb2.DiscountResponse.FromString,
+                request_serializer=messages__pb2.DiscountRequest.SerializeToString,
+                response_deserializer=messages__pb2.DiscountResponse.FromString,
                 )
 
 
@@ -38,8 +38,8 @@ def add_DiscounterServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'calculate_discount': grpc.unary_unary_rpc_method_handler(
                     servicer.calculate_discount,
-                    request_deserializer=discount__pb2.DiscountRequest.FromString,
-                    response_serializer=discount__pb2.DiscountResponse.SerializeToString,
+                    request_deserializer=messages__pb2.DiscountRequest.FromString,
+                    response_serializer=messages__pb2.DiscountResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -64,7 +64,7 @@ class Discounter(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/discount.Discounter/calculate_discount',
-            discount__pb2.DiscountRequest.SerializeToString,
-            discount__pb2.DiscountResponse.FromString,
+            messages__pb2.DiscountRequest.SerializeToString,
+            messages__pb2.DiscountResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

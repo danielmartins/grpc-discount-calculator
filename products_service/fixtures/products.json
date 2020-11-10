@@ -1,0 +1,11 @@
+[
+  {
+    "title": "teste",
+    "price_in_cents": 123000
+  },
+  {
+    "id": "with_id",
+    "title": "teste",
+    "price_in_cents": 123000
+  }
+]

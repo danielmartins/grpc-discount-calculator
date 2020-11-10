@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "messages.proto";
+
+package discount;
+
+// The Discount service definition.
+service Discounter {
+  // Calculate discount by product
+  rpc calculate_discount (DiscountRequest) returns (DiscountResponse) {}
+}

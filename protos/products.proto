@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "messages.proto";
+
+package products;
+
+// The Products service definition.
+service Products {
+  // Get product by ID
+  rpc get_product (GetProductRequest) returns (GetProductResponse) {}
+  // Get all available products
+  rpc get_products (GetProductsRequest) returns (GetProductsResponse) {}
+}
