@@ -12,11 +12,14 @@ def compile(ctx, service_name, service):
 @task
 def compile_all(ctx):
     compile(ctx, "discount_service", "discounter")
+    compile(ctx, "discount_service", "users")
+    compile(ctx, "discount_service", "products")
     compile(ctx, "discount_service", "messages")
     compile(ctx, "products_service", "products")
     compile(ctx, "products_service", "messages")
     compile(ctx, "users_service", "users")
     compile(ctx, "users_service", "messages")
+    compile(ctx, "rest_api", "discounter")
     compile(ctx, "rest_api", "users")
     compile(ctx, "rest_api", "products")
     compile(ctx, "rest_api", "messages")
