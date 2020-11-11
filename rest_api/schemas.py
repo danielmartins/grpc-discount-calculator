@@ -5,17 +5,10 @@ from google.protobuf.timestamp_pb2 import Timestamp
 from pydantic.main import BaseModel
 
 
-class ProductBase(BaseModel):
+class Product(BaseModel):
     id: Optional[str]
     title: str
     price_in_cents: int
-
-
-class ProductCreate(ProductBase):
-    pass
-
-
-class Product(ProductBase):
     description: Optional[str]
 
     class Config:
@@ -41,19 +34,11 @@ class ProtoBufTimestamp(date):
         return f'Timestamp({super().__repr__()})'
 
 
-class UserBase(BaseModel):
+class User(BaseModel):
     id: Optional[str]
     first_name: str
     last_name: str
     date_of_birth: ProtoBufTimestamp
-
-
-class UserCreate(UserBase):
-    pass
-
-
-class User(UserBase):
-    pass
 
     class Config:
         orm_mode = True
