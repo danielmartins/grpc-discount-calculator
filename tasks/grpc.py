@@ -17,3 +17,6 @@ def compile_all(ctx):
     compile(ctx, "products_service", "messages")
     compile(ctx, "users_service", "users")
     compile(ctx, "users_service", "messages")
+    compile(ctx, "rest_api", "users")
+    compile(ctx, "rest_api", "products")
+    compile(ctx, "rest_api", "messages")
