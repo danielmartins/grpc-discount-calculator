@@ -14,11 +14,24 @@ services:
     env_file:
       - .env
     command: "uvicorn --host 0.0.0.0 --port 80 app.main:app --reload"
+    volumes:
+      - "./rest_api:/app"
+    depends_on:
+      - users_srv
+      - products_srv
 
   users_srv:
     build:
       context: users_service/
     volumes:
     - "./users_service:/app"
+    env_file:
+      - .env
+
+  products_srv:
+    build:
+      context: products_service/
+    volumes:
+      - "./products_service:/app"
     env_file:
       - .env

@@ -1,12 +1,15 @@
 import logging
+import os
 from concurrent import futures
 
 import grpc
+from loguru import logger
 
-from products_service import products_pb2_grpc, messages_pb2
-from products_service.repositories import create_database, get_products, SessionLocal, Product
+from app import products_pb2_grpc, messages_pb2
+from app.repositories import create_database, get_products, SessionLocal, Product
 
-logger = logging.getLogger(__name__)
+
+SRV_PORT = os.getenv("PRODUCTS_SRV_PORT", "50052")
 
 create_database()
 db = SessionLocal()
@@ -31,7 +34,9 @@ class Products(products_pb2_grpc.ProductsServicer):
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     products_pb2_grpc.add_ProductsServicer_to_server(Products(), server)
-    server.add_insecure_port('[::]:50051')
+    server_addrs = f"0.0.0.0:{SRV_PORT}"
+    logger.info(f"Starting server at {server_addrs}")
+    server.add_insecure_port(server_addrs)
     server.start()
     server.wait_for_termination()
 

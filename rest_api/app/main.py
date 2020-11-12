@@ -14,11 +14,13 @@ app = FastAPI()
 
 USERS_SRV_PORT = os.getenv("USERS_SRV_PORT", "50052")
 USERS_SRV_HOST = os.getenv("USERS_SRV_HOST", "")
+PRODUCTS_SRV_HOST = os.getenv("PRODUCTS_SRV_HOST", "")
+PRODUCTS_SRV_PORT = os.getenv("PRODUCTS_SRV_PORT", "")
 USERS_DSN = f"{USERS_SRV_HOST}:{USERS_SRV_PORT}"
+PRODUCTS_DSN = f"{PRODUCTS_SRV_HOST}:{PRODUCTS_SRV_PORT}"
 
 
 def get_users_service():
-
     logger.info(f"Users service at {USERS_DSN}")
     with grpc.insecure_channel(USERS_DSN) as channel:
         stub = UsersStub(channel)
@@ -26,7 +28,8 @@ def get_users_service():
 
 
 def get_products_service():
-    with grpc.insecure_channel('localhost:50051') as channel:
+    logger.info(f"Products service at {PRODUCTS_DSN}")
+    with grpc.insecure_channel(PRODUCTS_DSN) as channel:
         stub = ProductsStub(channel)
         yield stub
 

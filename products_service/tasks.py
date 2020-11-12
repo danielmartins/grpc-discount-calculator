@@ -5,7 +5,7 @@ from invoke import task
 from loguru import logger
 from sqlalchemy.exc import IntegrityError
 
-from products_service.repositories import create_product, SessionLocal, ProductCreate
+from app.repositories import create_product, SessionLocal, ProductCreate
 
 fake = Faker()
 db = SessionLocal()

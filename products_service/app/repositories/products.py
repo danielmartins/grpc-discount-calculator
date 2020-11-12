@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from products_service.repositories import models, schemas
+from . import schemas, models
 
 
 def get_products(db: Session, skip: int = 0, limit: int = 100):

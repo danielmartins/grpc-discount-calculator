@@ -2,7 +2,7 @@ import logging
 
 import grpc
 
-from products_service import products_pb2_grpc, messages_pb2
+from app import products_pb2_grpc, messages_pb2
 
 
 def run():
