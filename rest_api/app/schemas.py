@@ -16,7 +16,6 @@ class Product(BaseModel):
 
 
 class ProtoBufTimestamp(date):
-
     @classmethod
     def __get_validators__(cls):
         # one or more validators may be yielded which will be called in the
@@ -31,7 +30,7 @@ class ProtoBufTimestamp(date):
         return v
 
     def __repr__(self):
-        return f'Timestamp({super().__repr__()})'
+        return f"Timestamp({super().__repr__()})"
 
 
 class User(BaseModel):

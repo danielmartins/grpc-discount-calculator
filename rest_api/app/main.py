@@ -18,20 +18,28 @@ def get_products(db: ProductsStub = Depends(services.products)):
 
 
 @app.get("/products/{user_id}/", response_model=List[schemas.Product])
-def get_products_with_discount(user_id: str, products_srv: ProductsStub = Depends(services.products),
-                               discount_srv: DiscounterStub = Depends(services.discount),
-                               users_srv: UsersStub = Depends(services.users)):
+def get_products_with_discount(
+    user_id: str,
+    products_srv: ProductsStub = Depends(services.products),
+    discount_srv: DiscounterStub = Depends(services.discount),
+    users_srv: UsersStub = Depends(services.users),
+):
     user = repositories.get_user(users_srv, user_id)
     products = repositories.get_products(products_srv)
-    products = [repositories.calculate_discount(discount_srv, p, user) for p in products]
+    products = [
+        repositories.calculate_discount(discount_srv, p, user) for p in products
+    ]
     return products
 
 
 @app.get("/products/{user_id}/{product_id}/", response_model=schemas.Product)
-def get_product_with_discount(user_id: str, product_id: str,
-                              products_srv: ProductsStub = Depends(services.products),
-                              discount_srv: DiscounterStub = Depends(services.discount),
-                              users_srv: UsersStub = Depends(services.users)):
+def get_product_with_discount(
+    user_id: str,
+    product_id: str,
+    products_srv: ProductsStub = Depends(services.products),
+    discount_srv: DiscounterStub = Depends(services.discount),
+    users_srv: UsersStub = Depends(services.users),
+):
     user = repositories.get_user(users_srv, user_id)
     logger.info(f"User -> {user}")
     product = repositories.get_product(products_srv, product_id)
