@@ -15,7 +15,7 @@ db = SessionLocal()
 
 @task
 def generate_fake(ctx, qty=100):
-    logger.info(f"Generating {qty} fake products")
+    logger.info(f"Generating {qty} fake users")
     for i in range(qty):
         user = UserCreate(first_name=fake.first_name(),
                           last_name=fake.last_name(),
@@ -27,7 +27,7 @@ def generate_fake(ctx, qty=100):
 @task
 def load_fixture(ctx, name):
     logger.info(f"Loading fixture {name}")
-    with open(f"fixtures/{name}.json") as fixture:
+    with open(f"app/fixtures/{name}.json") as fixture:
         products = json.load(fixture)
         for p in products:
             user = UserCreate(**p)

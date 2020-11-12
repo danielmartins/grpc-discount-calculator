@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from loguru import logger
 from stories import story, arguments, Success, Result
 
 
@@ -18,6 +19,7 @@ class DiscountUseCase:
         ctx.discounts = []
         ctx.today = datetime.now()
         ctx.birthday = ctx.user.date_of_birth.ToDatetime()
+        logger.info(f"Init - {ctx.today} - {ctx.birthday}")
         return Success()
 
     def calculate_birthday_discount(self, ctx):  # noqa
