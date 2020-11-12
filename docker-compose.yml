@@ -1,0 +1,24 @@
+version: '3'
+
+volumes:
+  users_database_data:
+  products_database_data:
+
+services:
+
+  api:
+    build:
+      context: rest_api/
+    ports:
+      - "8000:80"
+    env_file:
+      - .env
+    command: "uvicorn --host 0.0.0.0 --port 80 app.main:app --reload"
+
+  users_srv:
+    build:
+      context: users_service/
+    volumes:
+    - "./users_service:/app"
+    env_file:
+      - .env

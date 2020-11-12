@@ -1,7 +1,9 @@
+import os
 from typing import List
 
 import grpc
 from fastapi import FastAPI, Depends
+from loguru import logger
 
 from . import repositories, schemas
 from .discounter_pb2_grpc import DiscounterStub
@@ -10,9 +12,15 @@ from .users_pb2_grpc import UsersStub
 
 app = FastAPI()
 
+USERS_SRV_PORT = os.getenv("USERS_SRV_PORT", "50052")
+USERS_SRV_HOST = os.getenv("USERS_SRV_HOST", "")
+USERS_DSN = f"{USERS_SRV_HOST}:{USERS_SRV_PORT}"
+
 
 def get_users_service():
-    with grpc.insecure_channel('localhost:50052') as channel:
+
+    logger.info(f"Users service at {USERS_DSN}")
+    with grpc.insecure_channel(USERS_DSN) as channel:
         stub = UsersStub(channel)
         yield stub
 
@@ -46,5 +54,10 @@ def get_products(user_id: str, products_srv: ProductsStub = Depends(get_products
 
 
 @app.get("/users/{user_id}", response_model=schemas.User)
-def get_user(user_id: str, db: UsersStub = Depends(get_users_service)):
+def get_user_by_id(user_id: str, db: UsersStub = Depends(get_users_service)):
     return repositories.get_user(db, user_id)
+
+
+@app.get("/users/", response_model=List[schemas.User])
+def get_users(users_srv: UsersStub = Depends(get_users_service)):
+    return repositories.get_users(users_srv)

@@ -8,4 +8,6 @@ package users;
 service Users {
   // Get User By ID
   rpc get_user (GetUserRequest) returns (GetUserResponse) {}
+  // Get All Users
+  rpc get_users (GetUsersRequest) returns (GetUsersResponse) {}
 }

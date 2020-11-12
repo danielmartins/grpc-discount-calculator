@@ -5,7 +5,7 @@ from invoke import task
 from loguru import logger
 from sqlalchemy.exc import IntegrityError
 
-from users_service.repositories import UserCreate, create_user, create_database, SessionLocal
+from app.repositories import UserCreate, create_user, create_database, SessionLocal
 
 
 create_database()

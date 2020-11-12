@@ -40,6 +40,14 @@ message GetUserRequest {
   string user_id = 1;
 }
 
+// The request message to obtain a all users
+message GetUsersRequest {}
+
+// The request message to obtain a user
+message GetUsersResponse {
+  repeated User users = 1;
+}
+
 // The response message to obtain a user
 message GetUserResponse {
   User user = 1;

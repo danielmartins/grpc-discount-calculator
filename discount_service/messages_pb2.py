@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0emessages.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\"n\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x1b\n\x08\x64iscount\x18\x05 \x01(\x0b\x32\t.Discount\"l\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x31\n\rdate_of_birth\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"6\n\x0f\x44iscountRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\"f\n\x10\x44iscountResponse\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x1b\n\x13\x66ull_price_in_cents\x18\x02 \x01(\x05\x12!\n\x19\x64iscounted_price_in_cents\x18\x03 \x01(\x05\"!\n\x0eGetUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"&\n\x0fGetUserResponse\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"\'\n\x11GetProductRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\"/\n\x12GetProductResponse\x12\x19\n\x07product\x18\x01 \x01(\x0b\x32\x08.Product\"\x14\n\x12GetProductsRequest\"1\n\x13GetProductsResponse\x12\x1a\n\x08products\x18\x01 \x03(\x0b\x32\x08.Productb\x06proto3'
+  serialized_pb=b'\n\x0emessages.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n\x08\x44iscount\x12\x0b\n\x03pct\x18\x01 \x01(\x02\x12\x16\n\x0evalue_in_cents\x18\x02 \x01(\x05\"n\n\x07Product\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0eprice_in_cents\x18\x02 \x01(\x05\x12\r\n\x05title\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\x12\x1b\n\x08\x64iscount\x18\x05 \x01(\x0b\x32\t.Discount\"l\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\x31\n\rdate_of_birth\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"6\n\x0f\x44iscountRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\"f\n\x10\x44iscountResponse\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x1b\n\x13\x66ull_price_in_cents\x18\x02 \x01(\x05\x12!\n\x19\x64iscounted_price_in_cents\x18\x03 \x01(\x05\"!\n\x0eGetUserRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"\x11\n\x0fGetUsersRequest\"(\n\x10GetUsersResponse\x12\x14\n\x05users\x18\x01 \x03(\x0b\x32\x05.User\"&\n\x0fGetUserResponse\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User\"\'\n\x11GetProductRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\"/\n\x12GetProductResponse\x12\x19\n\x07product\x18\x01 \x01(\x0b\x32\x08.Product\"\x14\n\x12GetProductsRequest\"1\n\x13GetProductsResponse\x12\x1a\n\x08products\x18\x01 \x03(\x0b\x32\x08.Productb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -296,6 +296,63 @@ _GETUSERREQUEST = _descriptor.Descriptor(
 )
 
 
+_GETUSERSREQUEST = _descriptor.Descriptor(
+  name='GetUsersRequest',
+  full_name='GetUsersRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=517,
+  serialized_end=534,
+)
+
+
+_GETUSERSRESPONSE = _descriptor.Descriptor(
+  name='GetUsersResponse',
+  full_name='GetUsersResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='users', full_name='GetUsersResponse.users', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=536,
+  serialized_end=576,
+)
+
+
 _GETUSERRESPONSE = _descriptor.Descriptor(
   name='GetUserResponse',
   full_name='GetUserResponse',
@@ -323,8 +380,8 @@ _GETUSERRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=517,
-  serialized_end=555,
+  serialized_start=578,
+  serialized_end=616,
 )
 
 
@@ -355,8 +412,8 @@ _GETPRODUCTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=557,
-  serialized_end=596,
+  serialized_start=618,
+  serialized_end=657,
 )
 
 
@@ -387,8 +444,8 @@ _GETPRODUCTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=598,
-  serialized_end=645,
+  serialized_start=659,
+  serialized_end=706,
 )
 
 
@@ -412,8 +469,8 @@ _GETPRODUCTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=647,
-  serialized_end=667,
+  serialized_start=708,
+  serialized_end=728,
 )
 
 
@@ -444,12 +501,13 @@ _GETPRODUCTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=669,
-  serialized_end=718,
+  serialized_start=730,
+  serialized_end=779,
 )
 
 _PRODUCT.fields_by_name['discount'].message_type = _DISCOUNT
 _USER.fields_by_name['date_of_birth'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_GETUSERSRESPONSE.fields_by_name['users'].message_type = _USER
 _GETUSERRESPONSE.fields_by_name['user'].message_type = _USER
 _GETPRODUCTRESPONSE.fields_by_name['product'].message_type = _PRODUCT
 _GETPRODUCTSRESPONSE.fields_by_name['products'].message_type = _PRODUCT
@@ -459,6 +517,8 @@ DESCRIPTOR.message_types_by_name['User'] = _USER
 DESCRIPTOR.message_types_by_name['DiscountRequest'] = _DISCOUNTREQUEST
 DESCRIPTOR.message_types_by_name['DiscountResponse'] = _DISCOUNTRESPONSE
 DESCRIPTOR.message_types_by_name['GetUserRequest'] = _GETUSERREQUEST
+DESCRIPTOR.message_types_by_name['GetUsersRequest'] = _GETUSERSREQUEST
+DESCRIPTOR.message_types_by_name['GetUsersResponse'] = _GETUSERSRESPONSE
 DESCRIPTOR.message_types_by_name['GetUserResponse'] = _GETUSERRESPONSE
 DESCRIPTOR.message_types_by_name['GetProductRequest'] = _GETPRODUCTREQUEST
 DESCRIPTOR.message_types_by_name['GetProductResponse'] = _GETPRODUCTRESPONSE
@@ -507,6 +567,20 @@ GetUserRequest = _reflection.GeneratedProtocolMessageType('GetUserRequest', (_me
   # @@protoc_insertion_point(class_scope:GetUserRequest)
   })
 _sym_db.RegisterMessage(GetUserRequest)
+
+GetUsersRequest = _reflection.GeneratedProtocolMessageType('GetUsersRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETUSERSREQUEST,
+  '__module__' : 'messages_pb2'
+  # @@protoc_insertion_point(class_scope:GetUsersRequest)
+  })
+_sym_db.RegisterMessage(GetUsersRequest)
+
+GetUsersResponse = _reflection.GeneratedProtocolMessageType('GetUsersResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETUSERSRESPONSE,
+  '__module__' : 'messages_pb2'
+  # @@protoc_insertion_point(class_scope:GetUsersResponse)
+  })
+_sym_db.RegisterMessage(GetUsersResponse)
 
 GetUserResponse = _reflection.GeneratedProtocolMessageType('GetUserResponse', (_message.Message,), {
   'DESCRIPTOR' : _GETUSERRESPONSE,
