@@ -17,9 +17,11 @@ db = SessionLocal()
 def generate_fake(ctx, qty=100):
     logger.info(f"Generating {qty} fake users")
     for i in range(qty):
-        user = UserCreate(first_name=fake.first_name(),
-                          last_name=fake.last_name(),
-                          date_of_birth=fake.date_of_birth())
+        user = UserCreate(
+            first_name=fake.first_name(),
+            last_name=fake.last_name(),
+            date_of_birth=fake.date_of_birth(),
+        )
         create_user(db, user)
         logger.info(f"User - {user.first_name} created")
 

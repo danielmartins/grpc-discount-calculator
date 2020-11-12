@@ -4,7 +4,13 @@ from concurrent import futures
 import grpc
 from loguru import logger
 
-from app.messages_pb2 import GetUserRequest, GetUserResponse, User as ServiceUser, GetUsersRequest, GetUsersResponse
+from app.messages_pb2 import (
+    GetUserRequest,
+    GetUserResponse,
+    User as ServiceUser,
+    GetUsersRequest,
+    GetUsersResponse,
+)
 from app.repositories import create_database, SessionLocal, get_user, User, get_users
 from app.users_pb2_grpc import UsersServicer, add_UsersServicer_to_server
 
@@ -41,5 +47,5 @@ def serve():
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     serve()
