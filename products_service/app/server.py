@@ -23,7 +23,9 @@ class Products(products_pb2_grpc.ProductsServicer):
     def get_product(self, request, context):
         logger.info("Getting one product")
         products = self._get_products()
-        return messages_pb2.GetProductResponse(product=products[0] if products else None)
+        return messages_pb2.GetProductResponse(
+            product=products[0] if products else None
+        )
 
     def get_products(self, request, context):
         logger.info("Getting all products")
@@ -41,6 +43,6 @@ def serve():
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig()
     serve()

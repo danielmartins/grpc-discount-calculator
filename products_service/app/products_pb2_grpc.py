@@ -6,8 +6,7 @@ import messages_pb2 as messages__pb2
 
 
 class ProductsStub(object):
-    """The Products service definition.
-    """
+    """The Products service definition."""
 
     def __init__(self, channel):
         """Constructor.
@@ -16,89 +15,110 @@ class ProductsStub(object):
             channel: A grpc.Channel.
         """
         self.get_product = channel.unary_unary(
-                '/products.Products/get_product',
-                request_serializer=messages__pb2.GetProductRequest.SerializeToString,
-                response_deserializer=messages__pb2.GetProductResponse.FromString,
-                )
+            "/products.Products/get_product",
+            request_serializer=messages__pb2.GetProductRequest.SerializeToString,
+            response_deserializer=messages__pb2.GetProductResponse.FromString,
+        )
         self.get_products = channel.unary_unary(
-                '/products.Products/get_products',
-                request_serializer=messages__pb2.GetProductsRequest.SerializeToString,
-                response_deserializer=messages__pb2.GetProductsResponse.FromString,
-                )
+            "/products.Products/get_products",
+            request_serializer=messages__pb2.GetProductsRequest.SerializeToString,
+            response_deserializer=messages__pb2.GetProductsResponse.FromString,
+        )
 
 
 class ProductsServicer(object):
-    """The Products service definition.
-    """
+    """The Products service definition."""
 
     def get_product(self, request, context):
-        """Get product by ID
-        """
+        """Get product by ID"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
     def get_products(self, request, context):
-        """Get all available products
-        """
+        """Get all available products"""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
 
 
 def add_ProductsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'get_product': grpc.unary_unary_rpc_method_handler(
-                    servicer.get_product,
-                    request_deserializer=messages__pb2.GetProductRequest.FromString,
-                    response_serializer=messages__pb2.GetProductResponse.SerializeToString,
-            ),
-            'get_products': grpc.unary_unary_rpc_method_handler(
-                    servicer.get_products,
-                    request_deserializer=messages__pb2.GetProductsRequest.FromString,
-                    response_serializer=messages__pb2.GetProductsResponse.SerializeToString,
-            ),
+        "get_product": grpc.unary_unary_rpc_method_handler(
+            servicer.get_product,
+            request_deserializer=messages__pb2.GetProductRequest.FromString,
+            response_serializer=messages__pb2.GetProductResponse.SerializeToString,
+        ),
+        "get_products": grpc.unary_unary_rpc_method_handler(
+            servicer.get_products,
+            request_deserializer=messages__pb2.GetProductsRequest.FromString,
+            response_serializer=messages__pb2.GetProductsResponse.SerializeToString,
+        ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'products.Products', rpc_method_handlers)
+        "products.Products", rpc_method_handlers
+    )
     server.add_generic_rpc_handlers((generic_handler,))
 
 
- # This class is part of an EXPERIMENTAL API.
+# This class is part of an EXPERIMENTAL API.
 class Products(object):
-    """The Products service definition.
-    """
+    """The Products service definition."""
 
     @staticmethod
-    def get_product(request,
+    def get_product(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/products.Products/get_product',
+            "/products.Products/get_product",
             messages__pb2.GetProductRequest.SerializeToString,
             messages__pb2.GetProductResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
 
     @staticmethod
-    def get_products(request,
+    def get_products(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
             target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/products.Products/get_products',
+            "/products.Products/get_products",
             messages__pb2.GetProductsRequest.SerializeToString,
             messages__pb2.GetProductsResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )

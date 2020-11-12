@@ -12,7 +12,14 @@ def generate_uuid():
 class Product(Base):
     __tablename__ = "products"
 
-    id = Column(String, primary_key=True, index=True, unique=True, nullable=False, default=generate_uuid)
+    id = Column(
+        String,
+        primary_key=True,
+        index=True,
+        unique=True,
+        nullable=False,
+        default=generate_uuid,
+    )
     price_in_cents = Column(Integer, index=True)
     title = Column(String, index=True)
     description = Column(String, nullable=True)
