@@ -2,8 +2,7 @@ import logging
 
 import grpc
 
-from . import discounter_pb2
-from . import discounter_pb2_grpc
+from discount_service.app import discounter_pb2_grpc, discounter_pb2
 
 
 def run():

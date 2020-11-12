@@ -11,10 +11,6 @@ def compile(ctx, service_name, service):
 
 @task
 def compile_all(ctx):
-    compile(ctx, "discount_service", "discounter")
-    compile(ctx, "discount_service", "users")
-    compile(ctx, "discount_service", "products")
-    compile(ctx, "discount_service", "messages")
     compile(ctx, "products_service/app", "products")
     compile(ctx, "products_service/app", "messages")
     compile(ctx, "users_service/app", "users")
@@ -23,3 +19,7 @@ def compile_all(ctx):
     compile(ctx, "rest_api/app", "users")
     compile(ctx, "rest_api/app", "products")
     compile(ctx, "rest_api/app", "messages")
+    compile(ctx, "discount_service/app", "discounter")
+    compile(ctx, "discount_service/app", "users")
+    compile(ctx, "discount_service/app", "products")
+    compile(ctx, "discount_service/app", "messages")

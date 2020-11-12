@@ -1,4 +1,4 @@
-from discount_service.use_cases.discount import DiscountUseCase
+from discount_service import DiscountUseCase
 
 
 def test_success_5_percent_discount_at_users_birthday(user_at_birthday, product_with_price_100):

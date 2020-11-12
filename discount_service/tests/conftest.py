@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 import pytest
 from google.protobuf.timestamp_pb2 import Timestamp
 
-from .. import messages_pb2
+from ..app import messages_pb2
 
 
 @pytest.fixture

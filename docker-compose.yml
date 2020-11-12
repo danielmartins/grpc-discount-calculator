@@ -19,6 +19,7 @@ services:
     depends_on:
       - users_srv
       - products_srv
+      - discount_srv
 
   users_srv:
     build:
@@ -33,5 +34,13 @@ services:
       context: products_service/
     volumes:
       - "./products_service:/app"
+    env_file:
+      - .env
+
+  discount_srv:
+    build:
+      context: discount_service/
+    volumes:
+      - "./discount_service:/app"
     env_file:
       - .env
