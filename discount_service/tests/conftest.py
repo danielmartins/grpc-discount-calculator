@@ -12,8 +12,9 @@ def user():
     birthday.FromDatetime(datetime(1986, 2, 27, tzinfo=timezone.utc))
     usr_params = {
         "id": "123qweasd",
-        "first_name": "daniel", "last_name": "santos",
-        "date_of_birth": birthday
+        "first_name": "daniel",
+        "last_name": "santos",
+        "date_of_birth": birthday,
     }
     return messages_pb2.User(**usr_params)
 
@@ -24,8 +25,9 @@ def user_with_birthday_at_black_fridays():
     birthday.FromDatetime(datetime(1986, 11, 25, tzinfo=timezone.utc))
     usr_params = {
         "id": "123qweasd",
-        "first_name": "daniel", "last_name": "santos",
-        "date_of_birth": birthday
+        "first_name": "daniel",
+        "last_name": "santos",
+        "date_of_birth": birthday,
     }
     return messages_pb2.User(**usr_params)
 
@@ -54,6 +56,6 @@ def product_with_price_100():
         "id": "123qwe",
         "price_in_cents": 100,
         "title": "product a",
-        "description": "description"
+        "description": "description",
     }
     return messages_pb2.Product(**prd_params)

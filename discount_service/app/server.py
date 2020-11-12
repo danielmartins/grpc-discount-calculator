@@ -53,9 +53,11 @@ class Discounter(discounter_pb2_grpc.DiscounterServicer):
         use_case = DiscountUseCase()
         price = use_case.calculate(product=product, user=user)
 
-        params = {"product_id": product.id,
-                  "full_price_in_cents": product.price_in_cents,
-                  "discounted_price_in_cents": price}
+        params = {
+            "product_id": product.id,
+            "full_price_in_cents": product.price_in_cents,
+            "discounted_price_in_cents": price,
+        }
         return DiscountResponse(**params)
 
 
@@ -69,6 +71,6 @@ def serve():
     server.wait_for_termination()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logging.basicConfig()
     serve()

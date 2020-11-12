@@ -5,7 +5,6 @@ from stories import story, arguments, Success, Result
 
 
 class DiscountUseCase:
-
     @story
     @arguments("product", "user")
     def calculate(I):  # noqa
@@ -23,7 +22,9 @@ class DiscountUseCase:
         return Success()
 
     def calculate_birthday_discount(self, ctx):  # noqa
-        is_birthday = ctx.today.day == ctx.birthday.day and ctx.today.month == ctx.birthday.month
+        is_birthday = (
+            ctx.today.day == ctx.birthday.day and ctx.today.month == ctx.birthday.month
+        )
         if is_birthday:
             ctx.discounts.append(5)
         return Success()
